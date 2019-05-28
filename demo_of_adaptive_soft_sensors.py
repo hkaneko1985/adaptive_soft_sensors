@@ -23,7 +23,7 @@ method_name = 'mwpls'  # ソフトセンサーの種類は以下の通りです
 # 'pls' : 最初のトレーニングデータで構築した PLS モデル (適応的ソフトセンサーではありません)
 # 'svr' : 最初のトレーニングデータで構築した SVR モデル (適応的ソフトセンサーではありません)
 # 'mwpls' : Moving Window PLS
-# 'mvsvr' : Moving Window SVR
+# 'mwsvr' : Moving Window SVR
 # 'jitpls' : Just-In-Time PLS
 # 'jitsvr' : Just-In-Time SVR
 # 'lwpls' : Locally-Weighted PLS
