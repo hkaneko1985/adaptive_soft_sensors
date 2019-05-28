@@ -8,6 +8,7 @@ import math
 import matplotlib.figure as figure
 import matplotlib.pyplot as plt
 import numpy as np
+import numpy.matlib
 import pandas as pd
 import functions
 from scipy.spatial.distance import cdist
@@ -17,6 +18,7 @@ from sklearn.cross_decomposition import PLSRegression
 from sklearn.model_selection import cross_val_predict, GridSearchCV
 from sklearn.neighbors import NearestNeighbors
 
+number_of_test_samples = 1000  # テストデータのサンプル数
 method_name = 'mwpls'  # ソフトセンサーの種類は以下の通りです
 # 'pls' : 最初のトレーニングデータで構築した PLS モデル (適応的ソフトセンサーではありません)
 # 'svr' : 最初のトレーニングデータで構築した SVR モデル (適応的ソフトセンサーではありません)
@@ -25,15 +27,14 @@ method_name = 'mwpls'  # ソフトセンサーの種類は以下の通りです
 # 'jitpls' : Just-In-Time PLS
 # 'jitsvr' : Just-In-Time SVR
 # 'lwpls' : Locally-Weighted PLS
-number_of_test_samples = 1000  # テストデータのサンプル数
 
 number_of_samples_in_modeling = 100  # MW や JIT モデルにおけるモデル構築用サンプルの数 
-max_sample_size = 10000  # データベースにおける最大のサンプル数
 y_measurement_delay = 10  # y の測定時間の遅れ
 dynamics_max = 10  # いくつまで時間遅れ変数を追加するか。0 なら時間遅れ変数は追加されません
 dynamics_span = 2  # いくつずつ時間を遅らせた変数を追加するか
 add_nonlinear_terms_flag = False  # True (二乗項・交差項を追加) or False (追加しない)
 
+max_sample_size = 10000  # データベースにおける最大のサンプル数
 fold_number = 5  # N-fold CV の N
 max_number_of_principal_components = 20  # 使用する主成分の最大数
 svr_cs = 2 ** np.arange(-5, 11, dtype=float)  # C の候補
